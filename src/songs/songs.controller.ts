@@ -12,7 +12,7 @@ export class SongsController {
   }
   @Get(':id')
   findOne() {
-    return 'This action returns one song';
+    return 'This action return a single song';
   }
   @Put(':id')
   update() {
