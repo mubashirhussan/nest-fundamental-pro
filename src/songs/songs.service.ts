@@ -1,15 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-
+export interface Song {
+  title: string;
+  artists: string[];
+  releasedDate: Date;
+  duration: Date;
+}
 @Injectable()
 export class SongsService {
-  private readonly songs: string[] = [];
-  create(song: string) {
+  private readonly songs: Song[] = [];
+  create(song: Song) {
     this.songs.push(song);
     return this.songs;
   }
-  findAll() {
+  findAll(): Song[] {
     return this.songs;
   }
 }
