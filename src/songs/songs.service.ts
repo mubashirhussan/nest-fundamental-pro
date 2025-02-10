@@ -10,7 +10,7 @@ export interface Song {
 @Injectable()
 export class SongsService {
   private readonly songs: Song[] = [];
-  create(song: Song) {
+  create(song: Song): Song[] {
     this.songs.push(song);
     return this.songs;
   }
