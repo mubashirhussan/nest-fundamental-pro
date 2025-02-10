@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { Song, SongsService } from './songs.service';
 import { CreateSongDto } from './dto/create-song-dto';
 
@@ -11,7 +21,15 @@ export class SongsController {
   }
   @Get()
   findAll(): Song[] {
-    return this.songsService.findAll();
+    try {
+      return this.songsService.findAll();
+    } catch (e) {
+      throw new HttpException(
+        'server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        { cause: e },
+      );
+    }
   }
   @Get(':id')
   findOne() {

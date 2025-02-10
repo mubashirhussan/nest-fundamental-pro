@@ -15,6 +15,8 @@ export class SongsService {
     return this.songs;
   }
   findAll(): Song[] {
+    //error comes from db while fetching the data
+    // throw new Error('Parameter is not a number!');
     return this.songs;
   }
 }
